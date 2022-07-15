@@ -90,16 +90,14 @@ function PostTemplate(props) {
 
 export default function Posts() {
     return (
-        listaPost.map(item => {
-            return (
-                <PostTemplate
-                    userImg={item.userImg}
-                    userNome={item.userNome}
-                    postImg={item.postImg}
-                    likesImg={item.likesImg}
-                    likePerfil={item.likePerfil}
-                    likesNumero={item.likesNumero} />
-            )
-        })
+        listaPost.map(item =>
+            <PostTemplate
+                userImg={item.userImg}
+                userNome={item.userNome}
+                postImg={item.postImg}
+                likesImg={item.likesImg}
+                likePerfil={item.likePerfil}
+                likesNumero={item.likesNumero} />
+        )
     )
 }

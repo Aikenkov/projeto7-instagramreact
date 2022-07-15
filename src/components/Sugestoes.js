@@ -52,15 +52,13 @@ export default function Sugestoes() {
         <div class="sugestoes">
             <div class="titulo"> Sugestões para você <div>Ver tudo</div></div>
 
-            {listaSugestoes.map(item => {
-                return (
-                    <SugestoesTemplate
-                        img={item.img}
-                        nome={item.nome}
-                        razao={item.razao}
-                        seguir={item.seguir} />
-                )
-            })}
+            {listaSugestoes.map(item =>
+                <SugestoesTemplate
+                    img={item.img}
+                    nome={item.nome}
+                    razao={item.razao}
+                    seguir={item.seguir} />
+            )}
         </div>
     )
 }
