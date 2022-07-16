@@ -1,4 +1,4 @@
-
+import React from 'react';
 
 const listaPost = [
     {
@@ -22,10 +22,25 @@ const listaPost = [
 
 
 function AcoesTemplate() {
+
+    function like() {
+        if (heartlike === "heart-outline") {
+            setHeartlike("heart")
+            setLikecolor("likecolor")
+        } else {
+            setHeartlike("heart-outline")
+            setLikecolor("a")
+        }
+
+    }
+    const [likecolor, setLikecolor] = React.useState("a")
+    const [heartlike, setHeartlike] = React.useState("heart-outline")
+
     return (
         <div class="acoes">
             <div>
-                <ion-icon name="heart-outline"></ion-icon>
+                <ion-icon className={likecolor} onClick={like} name={heartlike}></ion-icon>
+                {console.log(likecolor)}
                 <ion-icon name="chatbubble-outline"></ion-icon>
                 <ion-icon name="paper-plane-outline"></ion-icon>
             </div>
