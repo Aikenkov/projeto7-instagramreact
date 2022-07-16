@@ -180,6 +180,7 @@ body {
 
 .post .usuario,
 .post .topo img,
+.post .conteudo img,
 .post .fundo img,
 .post ion-icon,
 .post strong {
@@ -401,6 +402,7 @@ body {
   }
 }
 
-.likecolor {
-  color: red;
+.post .fundo .acoes div:first-child ion-icon[name=heart] {
+  fill: red;
+  transition: 0.5s ease-in-out;
 }

@@ -19,84 +19,53 @@ const listaPost = [
     }
 ]
 
-
-
-function AcoesTemplate() {
+function PostTemplate(props) {
 
     function like() {
         if (heartlike === "heart-outline") {
             setHeartlike("heart")
-            setLikecolor("likecolor")
         } else {
             setHeartlike("heart-outline")
-            setLikecolor("a")
         }
 
     }
-    const [likecolor, setLikecolor] = React.useState("a")
+
     const [heartlike, setHeartlike] = React.useState("heart-outline")
 
     return (
-        <div class="acoes">
-            <div>
-                <ion-icon className={likecolor} onClick={like} name={heartlike}></ion-icon>
-                {console.log(likecolor)}
-                <ion-icon name="chatbubble-outline"></ion-icon>
-                <ion-icon name="paper-plane-outline"></ion-icon>
-            </div>
-            <div>
-                <ion-icon name="bookmark-outline"></ion-icon>
-            </div>
-        </div>
-    )
-}
-function TopoTemplate(props) {
-    return (
-        <div class="topo">
-            <div class="usuario">
-                <img src={props.userImg} /> {props.userNome}
-            </div>
-            <div class="acoes">
-                <ion-icon name="ellipsis-horizontal"></ion-icon>
-            </div>
-        </div>
-    )
-}
-
-function ConteudoTemplate(props) {
-    return (
-        <div class="conteudo">
-            <img src={props.postImg} />
-        </div>
-    )
-}
-
-function FundoTemplate(props) {
-    return (
-        <div class="fundo">
-            <AcoesTemplate />
-            <div class="curtidas">
-                <img src={props.likesImg} />
-                <div class="texto"> Curtido por <strong>{props.likePerfil}</strong> e <strong>outras {props.likesNumero} pessoas</strong>
+        <div class="post">
+            <div class="topo">
+                <div class="usuario">
+                    <img src={props.userImg} /> {props.userNome}
+                </div>
+                <div class="acoes">
+                    <ion-icon name="ellipsis-horizontal"></ion-icon>
                 </div>
             </div>
-        </div>
-    )
-}
-
-function PostTemplate(props) {
-    return (
-        <div class="post">
-            <TopoTemplate
-                userImg={props.userImg}
-                userNome={props.userNome} />
-
-            <ConteudoTemplate
-                postImg={props.postImg} />
-            <FundoTemplate
-                likesImg={props.likesImg}
-                likePerfil={props.likePerfil}
-                likesNumero={props.likesNumero} />
+            <div class="conteudo">
+                <img onClick={() => {
+                    if (heartlike === "heart-outline") {
+                        setHeartlike("heart")
+                    }
+                }} src={props.postImg} />
+            </div>
+            <div class="fundo">
+                <div class="acoes">
+                    <div>
+                        <ion-icon onClick={like} name={heartlike}></ion-icon>
+                        <ion-icon name="chatbubble-outline"></ion-icon>
+                        <ion-icon name="paper-plane-outline"></ion-icon>
+                    </div>
+                    <div>
+                        <ion-icon name="bookmark-outline"></ion-icon>
+                    </div>
+                </div>
+                <div class="curtidas">
+                    <img src={props.likesImg} />
+                    <div class="texto"> Curtido por <strong>{props.likePerfil}</strong> e <strong>outras {props.likesNumero} pessoas</strong>
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }
